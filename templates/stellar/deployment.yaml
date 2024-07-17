@@ -1,0 +1,94 @@
+{{/*
+# Copyright 2024 stellar | 星相
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+*/}}
+{{- if eq .Values.stellar.type "internal" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ template "stellar.stellar" . }}"
+  labels:
+{{ include "stellar.labels" . | indent 4 }}
+    component: center
+spec:
+  replicas: {{ .Values.stellar.internal.replicas }}
+  selector:
+    matchLabels:
+{{ include "stellar.matchLabels" . | indent 6 }}
+      component: center
+  template:
+    metadata:
+      labels:
+{{ include "stellar.labels" . | indent 8 }}
+        component: center
+      annotations:
+{{- if .Values.stellar.podAnnotations }}
+{{ toYaml .Values.stellar.podAnnotations | indent 8 }}
+{{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - args:
+            - /app/n9e
+            - configs
+            - /app/etc
+          env:
+            - name: GIN_MODE
+              value: release
+            - name: TZ
+              value: Asia/Shanghai
+          image: {{ .Values.stellar.internal.image.repository }}:{{ .Values.stellar.internal.image.tag }}
+          name: center
+          ports:
+            - containerPort: {{ template "stellar.stellar.port" . }}
+{{- if .Values.stellar.internal.resources }}
+        resources:
+{{ toYaml .Values.stellar.internal.resources | indent 10 }}
+{{- end }}
+          volumeMounts:
+            - mountPath: /app/etc
+              name: stellar-config
+            - mountPath: /app/etc/template
+              name: stellar-template
+            - mountPath: /app/etc/script
+              name: stellar-script
+      # hostname: stellar
+      restartPolicy: Always
+      volumes:
+        - name: stellar-config
+          configMap:
+            name: stellar-config
+        - name: stellar-template
+          configMap:
+            name: stellar-template
+        - name: stellar-script
+          configMap:
+            name: stellar-script
+    {{- with .Values.stellar.internal.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.stellar.internal.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.stellar.internal.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+{{- end -}}
