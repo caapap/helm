@@ -5,9 +5,9 @@ entries:
       catalog.cattle.io/release-name: stellar
     apiVersion: v1
     appVersion: 1.1.0
-    created: "2024-10-17T17:31:03.830904521+08:00"
+    created: "2024-10-17T17:34:25.780160953+08:00"
     description: A Helm Chart for Stellar, multi-platform monitoring system
-    digest: b5ab908aab59a9e79cf0b264d45bfd9220b60b073b8d22e0118afa85bee98d71
+    digest: e2e4405bef102be8d3a5801b9a5f8a29d3c6bca0e47023ff77c6e7bc23927bb1
     home: iflytek
     icon: https://code.iflytek.com/osc/_source/zjma6/stellar/-/blob/heads%2Fmaster/logo-light.png
     keywords:
@@ -26,4 +26,4 @@ entries:
     urls:
     - stellar-v1.1.0.tgz
     version: v1.1.0
-generated: "2024-10-17T17:31:03.827293188+08:00"
+generated: "2024-10-17T17:34:25.776558741+08:00"
