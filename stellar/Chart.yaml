@@ -1,7 +1,7 @@
 annotations:
   catalog.cattle.io/release-name: stellar
 apiVersion: v1
-appVersion: 1.1.0
+appVersion: 1.5.0
 description: A Helm Chart for Stellar, multi-platform monitoring system
 home: iflytek
 icon: stellar-icon.png
@@ -18,4 +18,4 @@ maintainers:
 name: stellar
 sources:
 - https://code.iflytek.com/zjma6/stellar.git
-version: v1.1
+version: v1.5

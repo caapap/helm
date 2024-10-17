@@ -219,7 +219,7 @@ stellar:
     automountServiceAccountToken: false
     image:
       repository: docker.kxdigit.com/stellar/stellar
-      tag: v1.1
+      tag: v1.2
     resources: {}
     #  requests:
     #    memory: 512Mi
