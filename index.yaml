@@ -5,7 +5,7 @@ entries:
       catalog.cattle.io/release-name: flashcatcloud
     apiVersion: v1
     appVersion: 7.0.0
-    created: "2024-12-09T12:04:14.5974468+08:00"
+    created: "2024-12-09T15:21:23.8153581+08:00"
     description: A Helm Chart for nightingale, cloud-native monitoring system
     digest: be0b681b280503dd1441447703828e92b3bef7b100b04c0b8b2c735ddbe5ffcd
     home: https://n9e.github.io
@@ -26,4 +26,4 @@ entries:
     urls:
     - nightingale-0.2.8.tgz
     version: 0.2.8
-generated: "2024-12-09T12:04:14.5913548+08:00"
+generated: "2024-12-09T15:21:23.8112347+08:00"
