@@ -1,29 +1,29 @@
 apiVersion: v1
 entries:
-  stellar:
+  nightingale:
   - annotations:
-      catalog.cattle.io/release-name: stellar
+      catalog.cattle.io/release-name: flashcatcloud
     apiVersion: v1
-    appVersion: 1.1.0
-    created: "2024-10-17T17:34:25.780160953+08:00"
-    description: A Helm Chart for Stellar, multi-platform monitoring system
-    digest: e2e4405bef102be8d3a5801b9a5f8a29d3c6bca0e47023ff77c6e7bc23927bb1
-    home: iflytek
-    icon: https://code.iflytek.com/osc/_source/zjma6/stellar/-/blob/heads%2Fmaster/logo-light.png
+    appVersion: 7.0.1
+    created: "2024-12-09T10:38:37.0449507+08:00"
+    description: A Helm Chart for nightingale, cloud-native monitoring system
+    digest: f8e9775399f652aea237fa05695051bec371a31736362d2178982ce8e7357b09
+    home: https://n9e.github.io/charts
+    icon: https://raw.githubusercontent.com/flashcatcloud/n9e-helm/master/n9e-icon.png
     keywords:
-    - stellar
+    - nightingale
     - monitoring
     - alerting
     - metrics
     - traces
     - logs
     maintainers:
-    - email: zjma6@iflytek.com
-      name: stellar
-    name: stellar
+    - email: contact-us@flashcat.cloud
+      name: flashcatcloud
+    name: nightingale
     sources:
-    - https://code.iflytek.com/zjma6/stellar.git
+    - https://github.com/ccfos/nightingale
     urls:
-    - stellar-v1.1.0.tgz
-    version: v1.1.0
-generated: "2024-10-17T17:34:25.776558741+08:00"
+    - nightingale-v7.0.1.tgz
+    version: v7.0.1
+generated: "2024-12-09T10:38:37.0437973+08:00"
